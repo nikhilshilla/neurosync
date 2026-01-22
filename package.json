@@ -1,12 +1,14 @@
 {
     "name": "neuralsync",
     "version": "1.0.0",
-    "description": "Technology learning platform with AI chatbot",
+    "scripts": {
+        "build": "mkdir -p public && cp *.html *.css *.js public/"
+    },
     "dependencies": {
         "node-fetch": "^2.7.0"
     },
     "engines": {
-        "node": "24.x"
+        "node": "20.x"
     },
     "keywords": [
         "education",
