@@ -1,0 +1,126 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blockchain Implementation - Advanced AI Tech Platform</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="blockchain.css" />
+</head>
+<body>
+  <div class="grid-background"></div>
+  <header class="crypto-header">
+  <button class="crypto-back" onclick="history.back()" aria-label="Go back">
+    <i class="fas fa-arrow-left"></i>
+  </button>
+
+  <div class="crypto-brand">
+    <div class="crypto-logo"><i class="fas fa-shield-halved"></i></div>
+    <div>
+      <div class="crypto-brand-title">NEURALSYNC</div>
+      <div class="crypto-brand-sub">Blockchain Lab</div>
+      
+    </div>
+  </div>
+</header>
+
+  <!-- Optional: background effects -->
+  <div class="matrix-rain" id="matrixRain"></div>
+  <div class="data-flow-container" id="dataFlowContainer"></div>
+
+  
+
+  <!-- Blockchain Page -->
+  <div class="content-page" id="blockchainPage" style="display:flex;">
+    <div class="page-header">
+      <h1 class="holographic-text">Blockchain Implementation</h1>
+      <p class="subtitle">Working Proof-of-Work Blockchain with Real Mining</p>
+    </div>
+
+    <div class="page-content">
+      <div class="explanation">
+        <h2>Live Blockchain</h2>
+        <p>
+          This is a real blockchain implementation with Proof-of-Work consensus.
+          Each block is mined in real-time.
+        </p>
+
+        <div class="metrics-grid">
+          <div class="metric-card">
+            <div class="metric-value" id="blockHeight">1</div>
+            <div>Block Height</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value" id="miningDifficulty">4</div>
+            <div>Mining Difficulty</div>
+          </div>
+          <div class="metric-card">
+            <div class="metric-value" id="networkHashrate">0</div>
+            <div>Hashrate (H/s)</div>
+          </div>
+        </div>
+
+        <div class="control-panel">
+          <button class="control-btn primary" onclick="blockchain.mineBlock()" id="mineBlockButton">
+            <i class="fas fa-hammer"></i> Mine Block
+          </button>
+          <button class="control-btn" onclick="blockchain.addTransaction()" id="addTransactionButton">
+            <i class="fas fa-plus"></i> Add Transaction
+          </button>
+          <button class="control-btn" onclick="blockchain.validateChain()" id="validateChainButton">
+            <i class="fas fa-check"></i> Validate Chain
+          </button>
+        </div>
+
+        <div id="transactionStatus" style="margin-top: 10px; padding: 10px; border-radius: 5px; display: none;"></div>
+
+        <div style="margin-top: 20px;">
+          <h4>Blockchain Statistics</h4>
+          <canvas id="blockchainChart" style="width:100%; height:150px;"></canvas>
+        </div>
+      </div>
+
+      <div class="visualization">
+        <h2>Blockchain Explorer</h2>
+
+        <div class="blockchain-visual" id="blockchainVisual">
+          <div class="block-3d" style="padding: 15px; background: rgba(0,219,222,0.1); border-radius: 8px; margin-bottom: 10px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:30px; height:30px; background:#00dbde; border-radius:50%; display:flex; align-items:center; justify-content:center; font-weight:bold;">
+                0
+              </div>
+              <div style="flex:1;">
+                <div style="font-weight:bold;">Genesis Block</div>
+                <div style="font-size:0.8rem; color:#a0a0c0;">
+                  0000000000000000000000000000000000000000000000000000000000000000
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div style="margin-top: 20px; width: 100%;">
+          <h4>Mining Progress</h4>
+          <div style="background: rgba(0,0,0,0.3); height: 20px; border-radius: 10px; overflow: hidden; margin-top: 10px; position: relative;">
+            <div id="miningProgress"
+              style="height:100%; background: linear-gradient(90deg, #00dbde, #fc00ff); width:0; transition: width 0.3s;">
+            </div>
+            <div class="mining-beam"></div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; margin-top:5px; font-size:0.8rem;">
+            <span>Nonce: <span id="currentNonce">0</span></span>
+            <span>Hash: <span id="currentHash">0000...0000</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="blockchain.js"></script>
+</body>
+</html>

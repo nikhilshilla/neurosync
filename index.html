@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NEURALSYNC AI Platform</title>
+
+    <!-- Fonts / Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.10.0/dist/tf.min.js"></script>
+  </head>
+
+  <body>
+    <!-- Grid Backgrounds -->
+    <div class="grid-background"></div>
+    <div class="floating-grid" id="floatingGrid"></div>
+    <div class="data-flow-grid" id="dataFlowGrid"></div>
+    <div class="neural-grid" id="neuralGrid"></div>
+
+    <!-- Header -->
+    <header class="header">
+      <div class="logo">
+        <div class="logo-icon"><i class="fas fa-brain"></i></div>
+        <span>NEURALSYNC</span>
+      </div>
+
+      <!-- Mobile Menu Toggle Button -->
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        aria-label="Toggle navigation menu"
+      >
+        <i class="fas fa-bars"></i>
+      </button>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html" class="nav-link active">Dashboard</a>
+        <a href="neural.html" class="nav-link">Neural Networks</a>
+        <a href="blockchain.html" class="nav-link">Blockchain</a>
+        <a href="cryptography.html" class="nav-link">Security</a>
+      </nav>
+
+      <div class="header-actions" id="headerActions">
+        <button class="btn btn-primary" onclick="openDemo()">
+          <i class="fas fa-rocket"></i> Start Demo
+        </button>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero-section">
+      <div class="hero-grid-overlay"></div>
+      <div class="hero-content fade-in-up">
+        <br /><br />
+        <h1 class="hero-title">Welcome to NEURALSYNC</h1>
+        <p class="hero-subtitle">
+          Advanced AI Platform with Real-time Neural Networks, Blockchain &
+          Cryptography Integration
+        </p>
+
+        <div class="hero-buttons">
+          <button class="btn btn-primary" onclick="startAIDemo()">
+            <i class="fas fa-play"></i> Launch AI Assistant
+          </button>
+          <button class="btn btn-secondary" onclick="startNeuralTraining()">
+            <i class="fas fa-brain"></i> Start Neural Training
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-value">98.7%</span
+            ><span class="stat-label">AI Accuracy</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">2.4ms</span
+            ><span class="stat-label">Response Time</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">1.2M</span
+            ><span class="stat-label">Data Points</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-value">99.9%</span
+            ><span class="stat-label">Uptime</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main -->
+    <main class="main-container">
+      <div class="dashboard">
+        <div class="dashboard-header">
+          <h2 class="dashboard-title">System Overview</h2>
+          <p class="dashboard-subtitle">
+            Real-time monitoring of all AI systems and processes
+          </p>
+        </div>
+
+        <div class="metrics-grid">
+          <div class="metric-card fade-in-up delay-1 grid-pattern-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-title">System Performance</div>
+                <div class="metric-value">96.4</div>
+              </div>
+              <div class="metric-icon">
+                <i class="fas fa-tachometer-alt"></i>
+              </div>
+            </div>
+            <div class="metric-trend trend-up">
+              <i class="fas fa-arrow-up"></i> 2.8% from yesterday
+            </div>
+            <div class="metric-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 96%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-card fade-in-up delay-2 grid-pattern-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-title">Active AI Models</div>
+                <div class="metric-value">1,842</div>
+              </div>
+              <div class="metric-icon"><i class="fas fa-robot"></i></div>
+            </div>
+            <div class="metric-trend trend-up">
+              <i class="fas fa-arrow-up"></i> 128 new today
+            </div>
+            <div class="metric-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 82%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-card fade-in-up delay-3 grid-pattern-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-title">Data Processing</div>
+                <div class="metric-value">3.2TB</div>
+              </div>
+              <div class="metric-icon"><i class="fas fa-database"></i></div>
+            </div>
+            <div class="metric-trend trend-up">
+              <i class="fas fa-arrow-up"></i> 420GB today
+            </div>
+            <div class="metric-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 76%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="metric-card fade-in-up delay-4 grid-pattern-card">
+            <div class="metric-header">
+              <div>
+                <div class="metric-title">Response Time</div>
+                <div class="metric-value">142ms</div>
+              </div>
+              <div class="metric-icon"><i class="fas fa-bolt"></i></div>
+            </div>
+            <div class="metric-trend trend-down">
+              <i class="fas fa-arrow-down"></i> 8ms improvement
+            </div>
+            <div class="metric-progress">
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 94%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="charts-section">
+          <div class="section-header">
+            <h3 class="section-title">Performance Analytics</h3>
+            <p class="section-subtitle">
+              Real-time metrics and system performance data
+            </p>
+          </div>
+
+          <div class="charts-grid">
+            <div class="chart-card grid-pattern-card">
+              <div class="chart-header">
+                <h4 class="chart-title">System Load Over Time</h4>
+                <div class="chart-actions">
+                  <button class="time-btn active">24H</button>
+                  <button class="time-btn">7D</button>
+                  <button class="time-btn">30D</button>
+                </div>
+              </div>
+              <div class="chart-container">
+                <canvas id="performanceChart"></canvas>
+              </div>
+            </div>
+
+            <div class="chart-card grid-pattern-card">
+              <div class="chart-header">
+                <h4 class="chart-title">Resource Distribution</h4>
+                <div class="chart-actions">
+                  <button class="time-btn active">CPU</button>
+                  <button class="time-btn">Memory</button>
+                  <button class="time-btn">Network</button>
+                </div>
+              </div>
+              <div class="chart-container">
+                <canvas id="resourceChart"></canvas>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="ai-chat-section">
+          <div class="section-header">
+            <h3 class="section-title">AI Assistant</h3>
+            <p class="section-subtitle">
+              Ask questions about AI, ML, or any technology topic
+            </p>
+          </div>
+
+          <div class="ai-chat-card grid-pattern-card">
+            <div class="chat-header">
+              <div class="chat-title">
+                <div class="chat-avatar"><i class="fas fa-robot"></i></div>
+                <div>
+                  <h4 style="margin-bottom: 4px">NEURALSYNC AI Assistant</h4>
+                  <p style="color: var(--text-light); font-size: 0.95rem">
+                    Powered by advanced neural networks
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+              <div class="message ai">
+                <div class="message-avatar"><i class="fas fa-robot"></i></div>
+                <div class="message-content">
+                  Hello! I'm your NEURALSYNC AI Assistant. What would you like
+                  to explore today?
+                  <span class="message-time">Just now</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="chat-input-area">
+              <div class="chat-input-wrapper">
+                <input
+                  type="text"
+                  class="chat-input"
+                  id="chatInput"
+                  placeholder="Type your question about AI or technology..."
+                />
+                <button class="btn btn-primary" onclick="sendAIMessage()">
+                  <i class="fas fa-paper-plane"></i> Send
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="neural-animation" id="neuralAnimation"></div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-content">
+        <div class="footer-logo">NEURALSYNC</div>
+        <div class="footer-links">
+          <a href="#" class="footer-link">Documentation</a>
+          <a href="#" class="footer-link">API Reference</a>
+          <a href="#" class="footer-link">Support</a>
+          <a href="#" class="footer-link">Privacy Policy</a>
+          <a href="#" class="footer-link">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        2024 NEURALSYNC AI Platform. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- Demo Modal -->
+    <div class="modal" id="demoModal">
+      <div class="modal-content grid-pattern-card">
+        <div class="modal-header">
+          <h3 class="modal-title">Launch Demo</h3>
+          <button class="modal-close" onclick="closeDemo()">&times;</button>
+        </div>
+
+        <div style="padding: 2rem">
+          <div style="text-align: center; margin-bottom: 2rem">
+            <div class="feature-icon ai" style="margin: 0 auto 1rem">
+              <i class="fas fa-rocket"></i>
+            </div>
+            <h4 style="margin-bottom: 0.5rem; color: var(--text)">
+              Start Interactive Demo
+            </h4>
+            <p style="color: var(--text-light)">
+              Choose a feature to experience live interaction
+            </p>
+          </div>
+
+          <div
+            style="
+              display: grid;
+              grid-template-columns: 1fr 1fr;
+              gap: 1rem;
+              margin-bottom: 2rem;
+            "
+          >
+            <button
+              class="btn btn-primary"
+              style="width: 100%"
+              onclick="startAIDemo()"
+            >
+              <i class="fas fa-robot"></i> AI Assistant
+            </button>
+            <button
+              class="btn btn-secondary"
+              style="width: 100%"
+              onclick="startNeuralTraining()"
+            >
+              <i class="fas fa-brain"></i> Neural Network
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="app.js"></script>
+  </body>
+</html>

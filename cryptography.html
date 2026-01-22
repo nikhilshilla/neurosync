@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cryptography Laboratory | NEURALSYNC</title>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="./cryptography.css" />
+</head>
+
+<body>
+  <div class="grid-background"></div>
+  
+
+  <header class="crypto-header">
+    <button class="crypto-back" onclick="history.back()" aria-label="Go back">
+      <i class="fas fa-arrow-left"></i>
+    </button>
+
+    <div class="crypto-brand">
+      <div class="crypto-logo"><i class="fas fa-shield-halved"></i></div>
+      <div>
+        <div class="crypto-brand-title">NEURALSYNC</div>
+        <div class="crypto-brand-sub">Cryptography Lab</div>
+      </div>
+    </div>
+  </header>
+
+  <main class="crypto-page">
+    <!-- Left Title Block -->
+    <section class="crypto-hero">
+      <h1>Cryptography<br />Laboratory</h1>
+      <p class="crypto-hero-sub">Real Encryption, Hashing &amp; Digital Signatures</p>
+    </section>
+
+    <!-- Center: Live Cryptography -->
+    <section class="crypto-card">
+      <div class="crypto-card-head">
+        <h2>Live Cryptography</h2>
+        <p>
+          This demo uses real Web Crypto API for encryption, hashing, and digital signatures.
+          All processing happens locally in your browser.
+        </p>
+      </div>
+
+      <div class="crypto-metrics">
+        <div class="crypto-metric">
+          <div class="crypto-metric-value" id="hashesPerSec">—</div>
+          <div class="crypto-metric-label">Hashes/sec</div>
+        </div>
+
+        <div class="crypto-metric">
+          <div class="crypto-metric-value" id="encryptionTime">0ms</div>
+          <div class="crypto-metric-label">Encryption Time</div>
+        </div>
+
+        <div class="crypto-metric wide">
+          <div class="crypto-metric-value" id="keyStrength">—</div>
+          <div class="crypto-metric-label">Key Strength</div>
+        </div>
+      </div>
+
+      <div class="crypto-actions">
+        <button class="btnx btnx-primary" id="btnGenKeys">
+          <i class="fas fa-key"></i> Generate Keys
+        </button>
+        <button class="btnx" id="btnEncrypt" disabled>
+          <i class="fas fa-lock"></i> Encrypt + Hash
+        </button>
+        <button class="btnx" id="btnSign" disabled>
+          <i class="fas fa-signature"></i> Sign + Verify
+        </button>
+      </div>
+
+      <div class="crypto-field">
+        <label for="cryptoMessage">Test Message</label>
+        <textarea id="cryptoMessage" rows="4" placeholder="Enter message to encrypt..."></textarea>
+      </div>
+
+      <div class="crypto-output">
+        <div class="crypto-output-title">Output</div>
+        <pre id="cryptoOutput" class="crypto-pre">Generate keys to start.</pre>
+      </div>
+    </section>
+
+    <!-- Right: Visualization -->
+    <section class="crypto-card">
+      <div class="crypto-card-head">
+        <h2>Cryptography Visualization</h2>
+      </div>
+
+      <div class="crypto-visual" id="cryptoVisual">
+        <div class="crypto-vis-header">
+          <div class="crypto-vis-title">Live Flow</div>
+          <div class="crypto-vis-pill" id="visMode">Idle</div>
+        </div>
+
+        <div class="crypto-stream" id="cryptoStream">
+          <div class="stream-line"></div>
+          <div class="stream-dot d1"></div>
+          <div class="stream-dot d2"></div>
+          <div class="stream-dot d3"></div>
+        </div>
+
+        <div class="crypto-blocks" id="cryptoBlocks"></div>
+      </div>
+
+      <!-- NEW: Generated keys display -->
+      <div class="crypto-panel">
+        <h3>Generated Keys</h3>
+
+        <div class="kv">
+          <div class="k">AES Key:</div>
+          <div class="v mono" id="aesKeyView">—</div>
+        </div>
+
+        <div class="kv">
+          <div class="k">RSA Public:</div>
+          <div class="v mono" id="rsaPublicView">—</div>
+        </div>
+
+        <div class="kv">
+          <div class="k">RSA Private:</div>
+          <div class="v mono" id="rsaPrivateView">—</div>
+        </div>
+      </div>
+
+      <div class="crypto-panel">
+        <h3>Hash Comparison</h3>
+        <div class="kv">
+          <div class="k">Original:</div>
+          <div class="v mono" id="hashOriginal">—</div>
+        </div>
+        <div class="kv">
+          <div class="k">Hashed:</div>
+          <div class="v mono" id="hashValue">—</div>
+        </div>
+      </div>
+
+      <div class="crypto-panel">
+        <h3>Security Status</h3>
+        <div class="status">
+          <i class="fas fa-shield-halved"></i>
+          <div>
+            <div class="status-title" id="securityTitle">Ready</div>
+            <div class="status-sub" id="securitySub">AES‑256‑GCM + RSA‑2048</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="./cryptography.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Environment variables
+.env
+backend/.env
+
+# Node modules
+node_modules/
+backend/node_modules/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+.vercel

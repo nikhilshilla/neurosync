@@ -1,0 +1,458 @@
+:root{
+  --primary: #2563EB;
+  --primary-light: #3B82F6;
+  --primary-dark: #1D4ED8;
+  --secondary: #7C3AED;
+  --accent: #06B6D4;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+
+  --light: #FFFFFF;
+  --light-2: #F8FAFC;
+  --light-3: #F1F5F9;
+  --light-4: #E2E8F0;
+
+  --dark: #1E293B;
+  --dark-2: #334155;
+  --dark-3: #475569;
+
+  --text: #0F172A;
+  --text-light: #64748B;
+
+  --border: #E2E8F0;
+  --border-dark: #CBD5E1;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
+
+*{ box-sizing:border-box; }
+
+body{
+  margin:0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--light-2) 0%, var(--light-3) 100%);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.grid-background{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    linear-gradient(90deg, var(--light) 1px, transparent 1px) 0 0 / 50px 50px,
+    linear-gradient(0deg, var(--light) 1px, transparent 1px) 0 0 / 50px 50px,
+    linear-gradient(90deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px) 25px 25px / 50px 50px,
+    linear-gradient(0deg, rgba(37, 99, 235, 0.05) 1px, transparent 1px) 25px 25px / 50px 50px;
+  background-color: var(--light-2);
+  animation: gridMove 40s linear infinite;
+}
+@keyframes gridMove{
+  0%{ background-position: 0 0, 0 0, 25px 25px, 25px 25px; }
+  100%{ background-position: 50px 50px, 50px 50px, 75px 75px, 75px 75px; }
+}
+
+.crypto-header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-start;
+
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+}
+
+.crypto-back{
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--light);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.crypto-back:hover{
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--light-3);
+}
+
+.crypto-brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+.crypto-logo{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+.crypto-brand-title{
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+.crypto-brand-sub{
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.crypto-page{
+  margin-top: 80px;
+  padding: 3rem 2rem;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+
+  display: grid;
+  grid-template-columns: 1fr 1.1fr 1.1fr;
+  gap: 2rem;
+}
+
+.crypto-hero{
+  padding-top: 1rem;
+}
+.crypto-hero h1{
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 3.25rem;
+  line-height: 1.05;
+  margin: 0 0 0.75rem 0;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.crypto-hero-sub{
+  margin: 0;
+  color: var(--text-light);
+  font-size: 1.1rem;
+  max-width: 420px;
+}
+
+.crypto-card{
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.crypto-card-head{
+  padding: 1.5rem 1.5rem 0.75rem;
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08) 0%, rgba(124, 58, 237, 0.08) 100%);
+  border-bottom: 1px solid var(--border);
+}
+.crypto-card-head h2{
+  margin: 0 0 0.5rem 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 600;
+  color: var(--text);
+}
+.crypto-card-head p{
+  margin: 0;
+  color: var(--text-light);
+  font-size: 0.95rem;
+}
+
+.crypto-metrics{
+  padding: 1.25rem 1.5rem 0.25rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+.crypto-metric{
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  box-shadow: var(--shadow-md);
+}
+.crypto-metric.wide{ grid-column: 1 / -1; }
+.crypto-metric-value{
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1.1;
+}
+.crypto-metric-label{
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+.crypto-actions{
+  padding: 0.75rem 1.5rem 0.5rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.btnx{
+  padding: 0.75rem 1rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  background: var(--light);
+  color: var(--text);
+}
+.btnx:hover{
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--light-3);
+}
+.btnx-primary{
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+.btnx-primary:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.25);
+  color:#fff;
+}
+.btnx:disabled{
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.crypto-field{
+  padding: 0.75rem 1.5rem 0.5rem;
+}
+.crypto-field label{
+  display:block;
+  font-weight: 600;
+  color: var(--text-light);
+  margin-bottom: 0.5rem;
+}
+.crypto-field textarea{
+  width: 100%;
+  min-height: 110px;
+  resize: vertical;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--light);
+  color: var(--text);
+  padding: 1rem 1rem;
+  outline: none;
+  transition: all 0.2s ease;
+}
+.crypto-field textarea:focus{
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.10);
+}
+
+.crypto-output{
+  margin: 0.75rem 1.5rem 1.5rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--light-2);
+  overflow: hidden;
+}
+.crypto-output-title{
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--border);
+  font-weight: 700;
+  color: var(--text);
+  background: var(--light);
+}
+.crypto-pre{
+  margin: 0;
+  padding: 1rem;
+  min-height: 150px;
+  white-space: pre-wrap;
+  word-break: break-word;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  color: var(--dark-2);
+}
+
+/* Visualization */
+.crypto-visual{
+  margin: 1.25rem 1.5rem 0.75rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--light);
+  overflow: hidden;
+}
+
+.crypto-vis-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding: 12px 12px 0;
+}
+.crypto-vis-title{
+  font-weight: 700;
+  color: var(--text);
+}
+.crypto-vis-pill{
+  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid var(--border);
+  background: var(--light);
+  color: var(--text-light);
+}
+
+.crypto-stream{
+  margin: 12px;
+  height: 110px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background:
+    radial-gradient(circle at 30% 30%, rgba(37,99,235,0.10), transparent 55%),
+    radial-gradient(circle at 70% 60%, rgba(124,58,237,0.10), transparent 55%),
+    linear-gradient(135deg, var(--light-2), var(--light));
+  position: relative;
+  overflow:hidden;
+}
+
+.stream-line{
+  position:absolute;
+  left:-20%;
+  top:50%;
+  width:140%;
+  height:2px;
+  background: linear-gradient(90deg, transparent, rgba(37,99,235,0.45), rgba(124,58,237,0.45), transparent);
+  transform: translateY(-50%);
+  opacity: 0.8;
+}
+
+.stream-dot{
+  position:absolute;
+  top:50%;
+  width:10px;
+  height:10px;
+  border-radius: 50%;
+  transform: translateY(-50%);
+  background: var(--primary);
+  box-shadow: 0 0 0 6px rgba(37,99,235,0.10);
+  opacity: 0;
+}
+
+.crypto-stream.active .stream-dot{
+  opacity: 1;
+  animation: streamMove 1.3s linear infinite;
+}
+.crypto-stream.active .stream-dot.d2{
+  animation-delay: 0.25s;
+  background: var(--secondary);
+  box-shadow: 0 0 0 6px rgba(124,58,237,0.10);
+}
+.crypto-stream.active .stream-dot.d3{
+  animation-delay: 0.5s;
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(6,182,212,0.10);
+}
+
+@keyframes streamMove{
+  0%{ left: -10%; }
+  100%{ left: 110%; }
+}
+
+.crypto-blocks{
+  margin: 0 12px 12px;
+  display:grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+}
+.crypto-block{
+  aspect-ratio: 1 / 1;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  background: var(--light);
+  box-shadow: var(--shadow-sm);
+}
+.crypto-block.on{
+  background: linear-gradient(135deg, rgba(37,99,235,0.18), rgba(124,58,237,0.14));
+  border-color: rgba(37,99,235,0.35);
+}
+
+/* Panels */
+.crypto-panel{
+  margin: 0.75rem 1.5rem;
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--light);
+  box-shadow: var(--shadow-md);
+}
+.crypto-panel h3{
+  margin: 0 0 0.75rem 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 1rem;
+  color: var(--text);
+}
+
+.kv{
+  display:grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0.75rem;
+  padding: 0.5rem 0;
+  border-top: 1px solid var(--border);
+}
+.kv:first-of-type{ border-top:none; }
+
+.k{ color: var(--text-light); font-weight: 600; }
+.v{ color: var(--dark-2); }
+.mono{
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+.kv .v{ min-width: 0; }
+.kv .v *{ overflow-wrap:anywhere; word-break:break-word; }
+
+.status{
+  display:flex;
+  gap: 10px;
+  align-items:flex-start;
+}
+.status i{
+  color: var(--success);
+  margin-top: 2px;
+}
+.status-title{
+  font-weight: 800;
+  color: var(--success);
+}
+.status-sub{
+  color: var(--text-light);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 1100px){
+  .crypto-page{ grid-template-columns: 1fr; }
+  .crypto-hero h1{ font-size: 2.75rem; }
+}

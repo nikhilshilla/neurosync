@@ -1,0 +1,600 @@
+/* neural.css — styled to match NEURALSYNC home/index theme [file:1] */
+
+/* Use same design tokens as index [file:1] */
+:root {
+  --primary: #2563EB;
+  --primary-light: #3B82F6;
+  --primary-dark: #1D4ED8;
+  --secondary: #7C3AED;
+  --accent: #06B6D4;
+  --success: #10B981;
+  --warning: #F59E0B;
+  --danger: #EF4444;
+
+  --light: #FFFFFF;
+  --light-2: #F8FAFC;
+  --light-3: #F1F5F9;
+  --light-4: #E2E8F0;
+
+  --dark: #1E293B;
+  --dark-2: #334155;
+  --dark-3: #475569;
+
+  --text: #0F172A;
+  --text-light: #64748B;
+
+  --border: #E2E8F0;
+  --border-dark: #CBD5E1;
+
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.10);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.10);
+  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.10);
+
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(135deg, var(--light-2) 0%, var(--light-3) 100%);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Subtle animated backgrounds like home */
+.matrix-rain {
+  position: fixed;
+  inset: 0;
+  z-index: -3;
+  opacity: 0.05; /* same spirit as home matrix overlay [file:1] */
+  pointer-events: none;
+}
+
+.data-flow-container {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  opacity: 0.10;
+}
+
+/* Back button: match home header button style */
+.back-btn {
+  position: fixed;
+  top: 18px;
+  left: 18px;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  color: var(--text);
+  text-decoration: none;
+  z-index: 1000;
+
+  transition: all 0.25s ease;
+}
+
+.back-btn:hover {
+  background: var(--light-3);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* Main page wrapper */
+.content-page {
+  width: 100%;
+  min-height: 100vh;
+  padding: 6.5rem 2rem 3rem; /* leave room for fixed back button */
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+}
+
+.page-header {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2.25rem 1.5rem;
+
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(37, 99, 235, 0.12);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(10px);
+  box-shadow: var(--shadow-lg);
+}
+
+.holographic-text {
+  margin: 0 0 0.75rem 0;
+  font-family: Poppins, Inter, sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1.15;
+
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.subtitle {
+  margin: 0;
+  color: var(--text-light);
+  font-size: 1.05rem;
+}
+
+/* Two-column content area */
+.page-content {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+/* Card sections (left explanation + right visualization) */
+.explanation,
+.visualization {
+  background: var(--light);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+/* Section header styling like home cards */
+.explanation > h2,
+.visualization > h2 {
+  margin: 0;
+  padding: 1.25rem 1.5rem;
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 600;
+  font-size: 1.25rem;
+
+  background: linear-gradient(
+    135deg,
+    rgba(37, 99, 235, 0.10) 0%,
+    rgba(124, 58, 237, 0.10) 100%
+  );
+  border-bottom: 1px solid var(--border);
+}
+
+.explanation > p {
+  margin: 0;
+  padding: 1rem 1.5rem 0.75rem;
+  color: var(--text-light);
+}
+
+/* Metrics same style as home metric cards */
+.metrics-grid {
+  padding: 0.25rem 1.5rem 1.25rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.metric-card {
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--light);
+  box-shadow: var(--shadow-md);
+  padding: 1.1rem 1rem;
+  text-align: center;
+
+  transition: all 0.25s ease;
+}
+
+.metric-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-xl);
+  border-color: rgba(37, 99, 235, 0.25);
+}
+
+.metric-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--primary);
+  margin-bottom: 0.25rem;
+}
+
+/* Control panel buttons: match home .btn style feel */
+.control-panel {
+  padding: 0 1.5rem 1.25rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0.75rem 1.15rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--light);
+  color: var(--text);
+  cursor: pointer;
+
+  font-weight: 600;
+  transition: all 0.25s ease;
+}
+
+.control-btn:hover {
+  background: var(--light-3);
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+.control-btn.primary {
+  border: none;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.20);
+}
+
+.control-btn.primary:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.28);
+}
+
+/* Weights visualization block */
+#weightsVisualization {
+  padding: 0 1.5rem 1.25rem;
+}
+
+#weightsVisualization h4,
+.explanation h4,
+.visualization h4 {
+  margin: 0.75rem 0 0.75rem;
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.weight-matrix {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 6px;
+
+  padding: 12px;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  background: var(--light-2);
+}
+
+/* If your JS adds divs inside weightMatrix, this styles them */
+.weight-matrix > div {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--light);
+  box-shadow: var(--shadow-sm);
+}
+
+/* Chart container area */
+.explanation canvas {
+  display: block;
+  width: 100% !important;
+  height: 170px !important;
+  margin: 0.75rem 0 1.5rem;
+}
+
+.explanation > div[style*="margin-top:20px"] {
+  padding: 0 1.5rem 1.25rem;
+}
+
+/* Visualization panel body */
+.neural-visualization {
+  padding: 1rem 1.5rem 1.25rem;
+  min-height: 340px;
+
+  background:
+    radial-gradient(circle at 25% 25%, rgba(37, 99, 235, 0.08), transparent 55%),
+    radial-gradient(circle at 75% 60%, rgba(124, 58, 237, 0.08), transparent 55%),
+    linear-gradient(135deg, var(--light-2), var(--light));
+  border-top: 1px solid var(--border);
+}
+
+/* A nice centered “shield” card like your home status indicators */
+.security-shield {
+  width: 64px;
+  height: 64px;
+  border-radius: 18px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: rgba(16, 185, 129, 0.10);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  box-shadow: var(--shadow-md);
+}
+
+/* Make inline styles text under shield match theme */
+.visualization p {
+  color: var(--text-light);
+}
+/* =========================
+   TOP NAVBAR (NEURAL)
+   Copy from main header styles
+   ========================= */
+
+.header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 80px;
+  padding: 0 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+}
+
+.logo{
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  font-family: Poppins, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.logo-icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: white;
+  font-size: 1.2rem;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+
+.nav-links{
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.nav-link{
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-md);
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover{
+  color: var(--primary);
+  background: var(--light-3);
+}
+
+.nav-link.active{
+  color: var(--primary);
+  background: rgba(37, 99, 235, 0.1);
+}
+
+.nav-link.active::after{
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 20px;
+  height: 3px;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
+.header-actions{
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn{
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-md);
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  font-size: 0.95rem;
+}
+
+.btn-primary{
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  color: white;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+.btn-primary:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 99, 235, 0.3);
+}
+
+.btn-secondary{
+  background: var(--light);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover{
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.notification-btn{
+  background: none;
+  border: none;
+  color: var(--text-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+
+  padding: 0.5rem;
+  border-radius: var(--radius-md);
+  position: relative;
+}
+
+.notification-btn:hover{
+  background: var(--light-3);
+  color: var(--text);
+}
+
+.notification-badge{
+  position: absolute;
+  top: 4px;
+  right: 4px;
+
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--danger);
+}
+
+/* Responsive: same as home */
+@media (max-width: 768px){
+  .header{
+    padding: 0 1rem;
+  }
+  .nav-links{
+    display: none;
+  }
+}
+
+/* IMPORTANT: if your page content is hidden behind fixed header */
+.main-container,
+.page-container,
+.neural-page{
+  margin-top: 80px;
+}
+
+.crypto-header{
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 80px;
+  padding: 0 2rem;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  justify-content: flex-start;
+
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  z-index: 1000;
+}
+
+.crypto-back{
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background: var(--light);
+  color: var(--text);
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+.crypto-back:hover{
+  border-color: var(--primary);
+  color: var(--primary);
+  background: var(--light-3);
+}
+
+.crypto-brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+.crypto-logo{
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color: #fff;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+}
+.crypto-brand-title{
+  font-family: Poppins, Inter, sans-serif;
+  font-weight: 700;
+  color: var(--primary);
+}
+.crypto-brand-sub{
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .page-content {
+    grid-template-columns: 1fr;
+  }
+  .metrics-grid {
+    grid-template-columns: 1fr;
+  }
+  .holographic-text {
+    font-size: 2.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .content-page {
+    padding: 6rem 1rem 2.5rem;
+  }
+  .page-header {
+    padding: 1.75rem 1.25rem;
+  }
+}
